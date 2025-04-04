@@ -7,7 +7,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
   <title>BLOG</title>
-
+  
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css')}}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -62,17 +62,33 @@
 
             <li class="nav-item">
               <a href="" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
+                <i class="nav-icon fas fa-home"></i>
                 <p>
                   {{ __('message.home') }}
                 </p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
+              <a href="{{ route('leagues.index')}}" class="nav-link">
+                <i class="fa-solid fa-baseball"></i>
                 <p>
-                  Home
+                  {{ __('message.league') }}
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link">
+                <i class="fa-solid fa-person"></i>
+                <p>
+                  {{ __('message.coach') }}
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link">
+                <i class="fa-solid fa-people-arrows"></i>
+                <p>
+                  {{ __('message.player') }}
                 </p>
               </a>
             </li>
@@ -80,7 +96,23 @@
               <a href="" class="nav-link">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
-                  Home
+                  {{ __('message.match') }}
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link">
+                <i class="fa-solid fa-people-group"></i>
+                <p>
+                  {{ __('message.team') }}
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link">
+                <i class="fa-solid fa-bullseye"></i>
+                <p>
+                  {{ __('message.goal') }}
                 </p>
               </a>
             </li>
@@ -133,7 +165,8 @@
 <!-- ./wrapper -->
 
 <!-- REQUIRED SCRIPTS -->
-
+{{-- fontAweSome --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fontawesome-iconpicker/3.2.0/js/fontawesome-iconpicker.min.js" integrity="sha512-7dlzSK4Ulfm85ypS8/ya0xLf3NpXiML3s6HTLu4qDq7WiJWtLLyrXb9putdP3/1umwTmzIvhuu9EW7gHYSVtCQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- jQuery -->
  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
  <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>

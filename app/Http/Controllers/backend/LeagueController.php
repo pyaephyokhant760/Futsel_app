@@ -10,9 +10,24 @@ class LeagueController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if ($request->ajax()) {
+            $role = Section::query();
+            
+            return DataTables::of($role)
+                ->addIndexColumn()
+                ->addColumn('name', function ($role) {
+                    return $role->name;
+                })
+                ->filterColumn('name', function ($query, $keyword) {
+                    $query->where('name', 'like', "%{$keyword}%");
+                })
+                ->addColumn('action', 'admin.role.action')
+                ->rawColumns(['name', 'action'])
+                ->make(true);
+        }
+        return view('admin.league.index');
     }
 
     /**
