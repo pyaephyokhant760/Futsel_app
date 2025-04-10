@@ -25,4 +25,9 @@ class AuthController extends Controller
             return redirect()->back()->with('error',"Please enter current email and password");
         }
     }
+
+    public function logout() {
+        Auth::logout();
+        return redirect()->route('login.index')->with('success', 'Login successful');
+    }
 }

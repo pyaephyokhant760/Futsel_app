@@ -13,13 +13,12 @@ return new class extends Migration
     {
         Schema::create('coaches', function (Blueprint $table) {
             $table->id();
-            $name = $table->string('first_name');
-            $table->string('last_name');
+            $table->string('name');
             $table->string('birth_date');
             $table->string('country');
             $table->string('history');
             $table->date('start_date');
-            $table->date('end_date');
+            $table->date('end_date')->NULLable();
             $table->timestamps();
         });
     }
