@@ -13,13 +13,15 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use HasApiTokens,HasFactory,HasRoles;
-
+    
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory;
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
+    use HasApiTokens;
+    use HasRoles;
+
 
     /**
      * The attributes that are mass assignable.

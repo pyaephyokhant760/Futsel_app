@@ -2,14 +2,16 @@
 
 @section('contact') 
     <div class='container'>
-        @can('league-create')
-            <a href="{{ route('leagues.create')}}" class="btn btn-dark text-white mb-3">{{__('message.league-create')}}</a>
+        @can('coach-create')
+            <a href="{{ route('coachs.create')}}" class="btn btn-dark text-white mb-3">{{__('message.coach-create')}}</a>
         @endcan
         <table id="myTable" class="display table table-striped align-middle mb-0 bg-white">
             <thead class="bg-light">
                 <tr>
                     <th style="width: 100px;">{{__('message.no')}}</th>
-                    <th style="width: 500px;">{{ __('message.name') }}</th>
+                    <th style="width: 200px;">{{ __('message.name') }}</th>
+                    <th style="width: 200px;">{{__('message.start-date')}}</th>
+                    <th style="width: 200px;">{{__('message.country')}}</th>
                     <th>{{ __('message.action') }}</th>
                 </tr>
             </thead>
@@ -29,7 +31,7 @@
                 responsive: true,
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('leagues.index') }}",
+                ajax: "{{ route('coachs.index') }}",
                 columns: [{
                         data: 'DT_RowIndex',
                         name: 'DT_RowIndex',
@@ -39,6 +41,17 @@
                     {
                         data: 'name',
                         name: 'name'
+                    },
+                    {
+                        data: 'start_date',
+                        name: 'start_date',
+                        orderable: false,
+                        searchable: false
+                    },
+                    {
+                        data: 'country',
+                        name: 'country',
+                        orderable: false,
                     },
                     {
                         data: 'action',
@@ -71,7 +84,7 @@
                         // AJAX call
                         $.ajax({
                             type: "POST",
-                            url: "{{ route('league.delete') }}", // ← Set your route here
+                            url: "{{ route('coach.delete') }}", // ← Set your route here
                             data: {
                                 id: id,
                             },

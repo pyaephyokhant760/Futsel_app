@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Session;
 
 class LanguageController extends Controller
 {
+    
     public function language(Request $request)
     {
         $lang = $request->lang;

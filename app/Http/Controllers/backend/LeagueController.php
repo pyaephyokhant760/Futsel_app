@@ -2,28 +2,41 @@
 
 namespace App\Http\Controllers\backend;
 
-use App\Http\Controllers\Controller;
+use App\Models\League;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Validator;
 
 class LeagueController extends Controller
 {
+    
+    public function __construct()
+    {
+        // $this->middleware('permission:league-list', ['only' => ['index']]);
+        // $this->middleware('permission:league-create', ['only' => ['create', 'store']]);
+        // $this->middleware('permission:league-edit', ['only' => ['edit', 'update']]);
+        // $this->middleware('permission:league-delete', ['only' => ['destroy']]);
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index(Request $request)
     {
+       
         if ($request->ajax()) {
-            $role = Section::query();
-            
-            return DataTables::of($role)
+            $league = League::query()->orderBy('created_at', 'desc');
+            // logger($league);
+            return DataTables::of($league)
                 ->addIndexColumn()
-                ->addColumn('name', function ($role) {
-                    return $role->name;
+                ->addColumn('name', function ($league) {
+                    return $league->name;
                 })
                 ->filterColumn('name', function ($query, $keyword) {
                     $query->where('name', 'like', "%{$keyword}%");
                 })
-                ->addColumn('action', 'admin.role.action')
+                ->addColumn('action', 'admin.league.action')
                 ->rawColumns(['name', 'action'])
                 ->make(true);
         }
@@ -35,7 +48,7 @@ class LeagueController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.league.create');
     }
 
     /**
@@ -43,7 +56,25 @@ class LeagueController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // check validator
+        $validator = Validator::make($request->all(),[
+            'name' => 'required'
+        ]);
+
+        // check validator fail
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $data = $validator->validate();
+
+        // create data
+        try {
+            League::query()->create($data);
+            return redirect()->route('leagues.index')->with('success', 'Successfully created!');
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect()->back()->with('error', 'There was an issue saving the Hanset. Please check your data.');
+        }
     }
 
     /**
@@ -59,7 +90,8 @@ class LeagueController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $league = League::query()->findOrFail($id);
+        return view('admin.league.edit', compact('league'));
     }
 
     /**
@@ -67,14 +99,34 @@ class LeagueController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $league = League::query()->findOrFail($id);
+        // check validator
+        $validator = Validator::make($request->all(),[
+            'name' => 'required'
+        ]);
+        // check validator fail
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        $data = $validator->validate();
+        // update data
+        try {
+            $league->update($data);
+            return redirect()->route('leagues.index')->with('success', 'Successfully updated!');
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect()->back()->with('error', 'There was an issue saving the Hanset. Please check your data.');
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request)
     {
-        //
+        $league = League::query()->findOrFail($request->id);
+        // Delete pdf
+
+        $league->delete();
+        return response()->json(['message' => 'league deleted successfully']);
     }
 }

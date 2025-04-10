@@ -25,10 +25,14 @@ class PermissionSeeder extends Seeder
         ]);
 
         $permissions = [
-            'user-list',
-            'user-create',
-            'user-edit',
-            'user-delete',
+            'league-list',
+            'league-create',
+            'league-edit',
+            'league-delete',
+            'coach-list',
+            'coach-create',
+            'coach-edit',
+            'coach-delete',
         ];
 
         
