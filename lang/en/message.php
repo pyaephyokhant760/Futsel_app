@@ -14,6 +14,10 @@ return [
 
     'team' => 'Team',
     'player' => 'Player',
+    'position' => 'Position',
+    'player-create' => 'Create Player',
+    'age' => 'Age',
+
     'goal' => 'Goal',
     'match' => 'Match',
     'no' => 'No',

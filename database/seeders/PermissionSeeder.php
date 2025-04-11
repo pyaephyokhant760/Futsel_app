@@ -33,6 +33,10 @@ class PermissionSeeder extends Seeder
             'coach-create',
             'coach-edit',
             'coach-delete',
+            'player-list',
+            'player-create',
+            'player-edit',
+            'player-delete',
         ];
 
         
