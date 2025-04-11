@@ -105,14 +105,17 @@
                                 </a>
                             </li>
                         @endcan
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="fa-solid fa-people-arrows"></i>
-                                <p>
-                                    {{ __('message.player') }}
-                                </p>
-                            </a>
-                        </li>
+                        @can('player-list')
+                            <li class="nav-item">
+                                <a href="{{ route('players.index') }}"
+                                    class="nav-link  @if (Route::is('players.index') || Route::is('players.create') || Route::is('players.edit')) active @endif">
+                                    <i class="fa-solid fa-user"></i>
+                                    <p>
+                                        {{ __('message.player') }}
+                                    </p>
+                                </a>
+                            </li>
+                        @endcan
                         <li class="nav-item">
                             <a href="" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>

@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use Database\Seeders\CoachSeeder;
 use Database\Seeders\LeagueSeeder;
+use Database\Seeders\PlayerSeeder;
 use Database\Seeders\PermissionSeeder;
 
 class DatabaseSeeder extends Seeder
@@ -25,5 +26,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PermissionSeeder::class);
         $this->call(LeagueSeeder::class);
         $this->call(CoachSeeder::class);
+        $this->call(PlayerSeeder::class);
     }
 }
