@@ -10,6 +10,7 @@ use App\Http\Controllers\backend\CoachController;
 use App\Http\Controllers\backend\MatchController;
 use App\Http\Controllers\backend\LeagueController;
 use App\Http\Controllers\backend\PlayerController;
+use App\Http\Controllers\frontend\IndexController;
 
 // Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {
 // });
@@ -42,3 +43,6 @@ Route::group(['middleware' => ['auth' ,'role:admin'], 'prefix' => 'admin'], func
     Route::post('delete-goal', [GoalController::class, 'destroy'])->name('goal.delete');
     
 });
+
+
+Route::get('user/dashboard', [IndexController::class, 'index'])->name('coach.index');

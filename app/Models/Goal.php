@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Goal extends Model
 {
-    protected $fillable = ['player_id','match_id','team_id','minute','own_goal'];
+    protected $fillable = ['match_id','minute','home_team_goal_id','away_team_goal_id','home_team_player_id','away_team_player_id'];
     
 }

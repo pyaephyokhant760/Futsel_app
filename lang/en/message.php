@@ -20,6 +20,8 @@ return [
 
     'goal' => 'Goal',
     'match' => 'Match',
+    'news' => 'News',
+    
     'no' => 'No',
     'name' => 'Name',
     'action' => 'Action',

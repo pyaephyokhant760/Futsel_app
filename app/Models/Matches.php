@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Matches extends Model
 {
     protected $table = 'matches';
-    protected $fillable = ['date','location','home_team','away_team','home_score','away_score'];
+    protected $fillable = ['date','time','location','home_team','away_team','league_id'];
     public $timestamps = true;
     public function homeTeam()
     {
