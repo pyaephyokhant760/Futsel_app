@@ -25,26 +25,26 @@ class MatchSeeder extends Seeder
         //     'home_score' => 2,
         //     'away_score' => 1,
         // ]);
-        {
-            for ($i = 0; $i < 100; $i++) {
-                do {
-                    $home = rand(1, 100); // Assuming 10 teams
-                    $away = rand(1, 100);
-                } while ($home === $away); // prevent same team match
+        // {
+        //     for ($i = 0; $i < 100; $i++) {
+        //         do {
+        //             $home = rand(1, 100); // Assuming 10 teams
+        //             $away = rand(1, 100);
+        //         } while ($home === $away); // prevent same team match
     
-                DB::table('matches')->insert([
-                    'home_team'   => $home,
-                    'away_team'   => $away,
-                    'league_id'   => rand(1, 5), // Assuming 5 leagues
-                    'date'        => Carbon::now()->addDays(rand(-5, 30))->format('Y-m-d'),
-                    'time'        => Carbon::now()->addHours(rand(0, 24))->format('H:i:s'),
-                    'location'    => 'Stadium ' . chr(rand(65, 90)),
-                    'home_score'  => rand(0, 5),
-                    'away_score'  => rand(0, 5),
-                    'created_at'  => now(),
-                    'updated_at'  => now(),
-                ]);
-            }
-        }
+        //         DB::table('matches')->insert([
+        //             'home_team'   => $home,
+        //             'away_team'   => $away,
+        //             'league_id'   => rand(1, 5), // Assuming 5 leagues
+        //             'date'        => Carbon::now()->addDays(rand(-5, 30))->format('Y-m-d'),
+        //             'time'        => Carbon::now()->addHours(rand(0, 24))->format('H:i:s'),
+        //             'location'    => 'Stadium ' . chr(rand(65, 90)),
+        //             'home_score'  => rand(0, 5),
+        //             'away_score'  => rand(0, 5),
+        //             'created_at'  => now(),
+        //             'updated_at'  => now(),
+        //         ]);
+        //     }
+        // }
     }
 }

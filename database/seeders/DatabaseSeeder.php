@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Database\Seeders\TeamSeeder;
 use Database\Seeders\CoachSeeder;
 use Database\Seeders\MatchSeeder;
 use Database\Seeders\LeagueSeeder;
@@ -29,5 +30,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CoachSeeder::class);
         $this->call(PlayerSeeder::class);
         $this->call(MatchSeeder::class);
+        $this->call(TeamSeeder::class);
     }
 }
