@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('team_name');
             $table->string('home_ground');
-            $table->foreignId("coach_id")->constrained('coaches');
-            $table->foreignId("league_id")->constrained('leagues');
-            $table->string('scores');
+            $table->foreignId("coach_id")->constrained('coaches')->references('id')->onDelete('cascade');
+            $table->foreignId("league_id")->constrained('leagues')->references('id')->onDelete('cascade');
+            $table->foreignId("player_id")->constrained('players')->references('id')->onDelete('cascade');
             $table->string('logo');
             $table->timestamps();
         });

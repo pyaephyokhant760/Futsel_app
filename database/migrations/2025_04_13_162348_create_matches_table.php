@@ -13,14 +13,13 @@ return new class extends Migration
     {
         Schema::create('matches', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("home_team")->constrained('teams')->references('id')->onDelete('cascade');
+            $table->foreignId("away_team")->constrained('teams')->references('id')->onDelete('cascade');
+            $table->foreignId("league_id")->constrained('leagues')->references('id')->onDelete('cascade');
             $table->date('date');
+            $table->time('time');
             $table->string('location');
-            $table->string('home_team');
-            $table->string('away_team');
-            $table->integer('home_score');
-            $table->integer('away_score');
             $table->timestamps();
-
         });
     }
 
