@@ -23,7 +23,13 @@ php artisan key:generate
  ```
 # for seeding
 ```
- php artisan db:seed --class=UserSeeder
- php artisan db:seed --class=CompanySeeder
+ php artisan db:seed --class=PermissionSeeder
+ php artisan db:seed --class=LeagueSeeder
+ php artisan db:seed --class=CoachSeeder
+ php artisan db:seed --class=TeamSeeder
+ php artisan db:seed --class=MatchSeeder
+ php artisan db:seed --class=GoalSeeder
+ php artisan db:seed --class=MarkSeeder
+ php artisan db:seed --class=NewsSeeder
 ```
 
