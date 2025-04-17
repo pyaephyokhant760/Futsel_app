@@ -46,3 +46,4 @@ Route::group(['middleware' => ['auth' ,'role:admin'], 'prefix' => 'admin'], func
 
 
 Route::get('user/dashboard', [IndexController::class, 'index'])->name('coach.index');
+// Route::post('user/date', [IndexController::class, 'getDate'])->name('get.data');
