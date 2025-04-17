@@ -81,7 +81,7 @@ class PlayerSeeder extends Seeder
         // }
         $faker = Faker::create();
 
-        for ($i = 0; $i < 50; $i++) {
+        for ($i = 0; $i < 100; $i++) {
             DB::table('players')->insert([
                 'name'      => $faker->name,
                 'birth'     => $faker->date(), // e.g. 1995-06-21

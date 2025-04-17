@@ -5,6 +5,9 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Database\Seeders\GoalSeeder;
+use Database\Seeders\MarkSeeder;
+use Database\Seeders\NewsSeeder;
 use Database\Seeders\TeamSeeder;
 use Database\Seeders\CoachSeeder;
 use Database\Seeders\MatchSeeder;
@@ -31,5 +34,8 @@ class DatabaseSeeder extends Seeder
         $this->call(PlayerSeeder::class);
         $this->call(MatchSeeder::class);
         $this->call(TeamSeeder::class);
+        $this->call(GoalSeeder::class);
+        $this->call(MarkSeeder::class);
+        $this->call(NewsSeeder::class);
     }
 }
