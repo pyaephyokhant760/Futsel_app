@@ -35,5 +35,9 @@ class IndexController extends Controller
         return view('user.index', compact('matches', 'dates'));
     }
     
-    
+    public function matches($id) {
+        $datas = Matches::where('id', $id)->with(['homeTeam', 'awayTeam', 'league', 'goal'])->first();
+        // dd($datas->toArray());
+        return view('user.match');
+    }
 }
