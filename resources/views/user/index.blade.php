@@ -107,7 +107,7 @@
             overflow-x: auto;
             gap: 10px;
             padding-bottom: 10px;
-            scroll-snap-type: x mandatory;
+            /* scroll-snap-type: x mandatory; */
             border-radius: 10px
         }
 
@@ -205,8 +205,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-5 ml-auto">
                         <h1 class="text-white">World Cup Event</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, molestias repudiandae
-                            pariatur.</p>
+                       
                         <div id="date-countdown"></div>
 
                     </div>
@@ -255,14 +254,21 @@
                     @foreach($matches as $data)
                     <div class="match">
                         <div class="team">
-                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/fhBITrIlbQxhVB6IjxUO6Q_64x64.png"
+                            <a href="{{ route('user.match',$data->id) }}">
+                                {{-- <img src="{{ asset('storage/' . $data->homeTeam->team_logo) }}" alt="Team A Logo"> --}}
+                                <img src="https://ssl.gstatic.com/onebox/media/sports/logos/fhBITrIlbQxhVB6IjxUO6Q_64x64.png"
                                 alt="Team A Logo">
+                            </a>
+                            
                             <span style="width: 100px">{{ $data->homeTeam->team_name }}</span>
                         </div>
                         <div class="score">{{ $data->goal->home_team_goal}} - {{ $data->goal->away_team_goal}}</div>
                         <div class="team">
-                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/z44l-a0W1v5FmgPnemV6Xw_64x64.png"
+                            <a href="{{ route('user.match',$data->id)}}">
+                                <img src="https://ssl.gstatic.com/onebox/media/sports/logos/z44l-a0W1v5FmgPnemV6Xw_64x64.png"
                                 alt="Team B Logo">
+                            </a>
+                           
                             <span style="width: 100px">{{ $data->awayTeam->team_name }}</span>
                         </div>
                     </div>

@@ -44,6 +44,8 @@ Route::group(['middleware' => ['auth' ,'role:admin'], 'prefix' => 'admin'], func
     
 });
 
+Route::prefix('user')->group(function() {
+    Route::get('dashboard', [IndexController::class, 'index'])->name('coach.index');
+    Route::get('match/{id}', [IndexController::class, 'matches'])->name('user.match');
+});
 
-Route::get('user/dashboard', [IndexController::class, 'index'])->name('coach.index');
-// Route::post('user/date', [IndexController::class, 'getDate'])->name('get.data');

@@ -13,12 +13,15 @@ return new class extends Migration
     {
         Schema::create('marks', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("team_id")->constrained('teams')->references('id')->onDelete('cascade');
-            $table->foreignId("match_id")->constrained('matches')->references('id')->onDelete('cascade');
-            $table->foreignId("goal_id")->constrained('goals')->references('id')->onDelete('cascade');
-            $table->string('mark');
+            $table->foreignId('team_id')->constrained('teams')->onDelete('cascade');
+            $table->foreignId('match_id')->constrained('matches')->onDelete('cascade');
+            $table->enum('result', ['win', 'draw', 'lose']);
+            $table->tinyInteger('mark');
+            $table->integer('goals_for');
+            $table->integer('goals_against');
             $table->timestamps();
         });
+        
     }
 
     /**
