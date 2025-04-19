@@ -28,8 +28,8 @@ php artisan key:generate
  php artisan db:seed --class=CoachSeeder
  php artisan db:seed --class=TeamSeeder
  php artisan db:seed --class=PlayerSeeder
- php artisan db:seed --class=GoalSeeder
  php artisan db:seed --class=MatchSeeder
+ php artisan db:seed --class=GoalSeeder
  php artisan db:seed --class=MarkSeeder
  php artisan db:seed --class=NewsSeeder
 ```
